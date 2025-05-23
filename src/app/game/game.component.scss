@@ -1,0 +1,31 @@
+.gameContent{
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    background-image: url("/assets/img/board.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-stack{
+    position: relative;
+    >img{
+        position: absolute;
+        width: 100px;
+        height: auto;
+    }
+}
+
+.top-card{
+    transition: all 225ms ease-in-out;
+    position: relative;
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.1) translateY(-10px);
+   }
+}
+
+.pick-card{
+    transform: scale(1.5) !important;
+}
