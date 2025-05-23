@@ -9,6 +9,7 @@ import { Game } from '../start-screen/medels/game';
 export class GameComponent {
 pickCardAnimation = false; 
 game!: Game;
+currentCard: string = '';
 
 ngOnInit(): void {
   this.newGame()
@@ -20,7 +21,20 @@ newGame(){
 }
 
 takeCard(){
-  this.pickCardAnimation = true;
+  if(!this.pickCardAnimation){
+    this.pickCardAnimation = true;
+    let card = this.game.stack.pop();
+    if(card !=undefined){
+    this.currentCard = card;
+    }
+
+    console.log(this.currentCard)
+    
+    let interval = setInterval(() => {
+      this.pickCardAnimation = false;
+      clearInterval(interval);
+    }, 2000);
+  }
 }
 
 }
