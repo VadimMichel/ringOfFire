@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Game } from '../start-screen/medels/game';
 
 @Component({
   selector: 'app-game',
@@ -6,12 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent {
-
 pickCardAnimation = false; 
+game!: Game;
+
+ngOnInit(): void {
+  this.newGame()
+}
+
+newGame(){
+  this.game = new Game();
+  console.log(this.game);
+}
 
 takeCard(){
   this.pickCardAnimation = true;
 }
-
 
 }
